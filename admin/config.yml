@@ -1,0 +1,43 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+locale: "ru"
+
+collections:
+  - name: "site"
+    label: "Сайт"
+    files:
+      - file: "content.json"
+        label: "Контент сайта"
+        name: "content"
+        fields:
+          - { label: "Имя / название студии", name: "name", widget: "string" }
+          - { label: "Фото на обложке (hero)", name: "hero_image", widget: "image" }
+          - label: "Услуги"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.price}}"
+            fields:
+              - { label: "Метка (например Studio)", name: "label", widget: "string" }
+              - { label: "Название услуги", name: "title", widget: "string" }
+              - { label: "Описание", name: "description", widget: "text" }
+              - { label: "Цена", name: "price", widget: "string" }
+          - label: "Галерея (лента фото)"
+            name: "gallery"
+            widget: "list"
+            field: { label: "Фото", name: "image", widget: "image" }
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Вопрос", name: "question", widget: "string" }
+              - { label: "Ответ", name: "answer", widget: "text" }
+              - { label: "Фото рядом с ответом", name: "image", widget: "image" }
+          - { label: "Текст в разделе Contact", name: "contact_text", widget: "text" }
+          - { label: "Ссылка на Instagram", name: "instagram_url", widget: "string" }
+          - { label: "Ссылка на Facebook", name: "facebook_url", widget: "string" }
