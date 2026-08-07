@@ -1,15 +1,15 @@
 {
   "name": "Jessi Jons",
-  "hero_image": "https://picsum.photos/seed/portrait1/1600/1200",
+  "hero_image": "/uploads/hf_20260709_141049_1768373a-cfc7-4df6-b4d2-ba6033f4d31e.png",
   "contact_text": "Хочу поработать с вами? Напишите мне через контактную форму на сайте — отвечу минимум за 2–3 рабочих дня.",
   "instagram_url": "https://instagram.com",
   "facebook_url": "https://facebook.com",
   "services": [
     {
       "label": "Studio",
-      "title": "Съёмка в студии",
-      "description": "Полное обсуждение вашего видения, стилистики и требований к съёмке. Доступ к полностью оборудованной студии со светом, задниками и реквизитом. Ретушь отобранных кадров для финального результата.",
-      "price": "$3,000"
+      "title": "AI фото контент",
+      "description": "Полное обсуждение вашего видения, стилистики и требований к съёмке. Создание AI фотосъемки",
+      "price": "5000"
     },
     {
       "label": "Outdoors",
@@ -19,8 +19,8 @@
     }
   ],
   "gallery": [
-    "https://picsum.photos/seed/w1/400/560",
-    "https://picsum.photos/seed/w2/400/560",
+    "/uploads/hf_20260607_155131_a9edc0df-1cd6-4164-9fcc-fbb722ead310.png",
+    "/uploads/hf_20260607_154718_9ff02149-b6b3-4c4b-b87b-87ab83699b16.png",
     "https://picsum.photos/seed/w3/460/620",
     "https://picsum.photos/seed/w4/400/560",
     "https://picsum.photos/seed/w5/400/560"
