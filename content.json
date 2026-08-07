@@ -1,0 +1,60 @@
+{
+  "name": "Jessi Jons",
+  "hero_image": "https://picsum.photos/seed/portrait1/1600/1200",
+  "contact_text": "Хочу поработать с вами? Напишите мне через контактную форму на сайте — отвечу минимум за 2–3 рабочих дня.",
+  "instagram_url": "https://instagram.com",
+  "facebook_url": "https://facebook.com",
+  "services": [
+    {
+      "label": "Studio",
+      "title": "Съёмка в студии",
+      "description": "Полное обсуждение вашего видения, стилистики и требований к съёмке. Доступ к полностью оборудованной студии со светом, задниками и реквизитом. Ретушь отобранных кадров для финального результата.",
+      "price": "$3,000"
+    },
+    {
+      "label": "Outdoors",
+      "title": "Выездная съёмка",
+      "description": "Помощь в выборе локации под нужную эстетику — городской или природный пейзаж. Всё необходимое оборудование доставляется на площадку. Цветокоррекция и ретушь отобранных кадров.",
+      "price": "$4,000"
+    }
+  ],
+  "gallery": [
+    "https://picsum.photos/seed/w1/400/560",
+    "https://picsum.photos/seed/w2/400/560",
+    "https://picsum.photos/seed/w3/460/620",
+    "https://picsum.photos/seed/w4/400/560",
+    "https://picsum.photos/seed/w5/400/560"
+  ],
+  "faq": [
+    {
+      "question": "What services do you offer?",
+      "answer": "Студийные и выездные fashion-съёмки, портретные серии для брендов и личных проектов, ретушь и цветокоррекция.",
+      "image": "https://picsum.photos/seed/faq1/240/300"
+    },
+    {
+      "question": "How do I book a photoshoot?",
+      "answer": "Забронировать съёмку можно через форму на сайте или письмом на почту. Отвечу в течение 1–2 рабочих дней.",
+      "image": "https://picsum.photos/seed/faq2/240/300"
+    },
+    {
+      "question": "Will you provide makeup/hair?",
+      "answer": "По запросу могу порекомендовать проверенных визажистов и стилистов, с которыми уже работала.",
+      "image": "https://picsum.photos/seed/faq3/240/300"
+    },
+    {
+      "question": "How many images will I receive?",
+      "answer": "Зависит от пакета — от 15 до 40 отретушированных кадров, финальное число обсуждается заранее.",
+      "image": "https://picsum.photos/seed/faq4/240/300"
+    },
+    {
+      "question": "Do you offer editing services?",
+      "answer": "Да, все кадры проходят цветокоррекцию и ретушь перед передачей заказчику.",
+      "image": "https://picsum.photos/seed/faq5/240/300"
+    },
+    {
+      "question": "Do you travel for photoshoots?",
+      "answer": "Да, готова выезжать за пределы города — расходы на дорогу обсуждаются отдельно.",
+      "image": "https://picsum.photos/seed/faq6/240/300"
+    }
+  ]
+}
