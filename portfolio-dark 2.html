@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JESSI JONS — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0A09;
+    --bg-alt:#111110;
+    --red:#E63A2E;
+    --white:#F4F3EF;
+    --grey:#8C8C86;
+    --line:rgba(244,243,239,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);color:var(--white);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--red);color:#fff;}
+  .display{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    color:var(--red);
+    letter-spacing:-.01em;
+    line-height:.86;
+  }
+  .label{
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);
+  }
+
+  /* ---- nav ---- */
+  nav{
+    position:absolute;top:0;left:0;right:0;z-index:20;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:28px 6vw;
+  }
+  nav .name{font-size:13px;letter-spacing:.1em;text-transform:uppercase;}
+  nav ul{list-style:none;display:flex;gap:26px;}
+  nav a{color:var(--white);text-decoration:none;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.8;}
+  nav a:hover{opacity:1;color:var(--red);}
+
+  /* ---- hero ---- */
+  .hero{
+    position:relative;height:100vh;min-height:640px;
+    display:flex;align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    filter:grayscale(.4) brightness(.75) contrast(1.05);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(10,10,9,.15) 0%, rgba(10,10,9,.85) 92%);
+  }
+  .hero h1{
+    position:relative;z-index:2;
+    font-size:clamp(64px,13vw,180px);
+    padding:0 6vw 60px;
+  }
+
+  /* ---- services ---- */
+  .services{
+    padding:80px 6vw 100px;
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;
+  }
+  .service{border-top:1px solid var(--line);padding-top:22px;}
+  .service .label{color:var(--red);margin-bottom:10px;}
+  .service h3{font-size:22px;font-weight:600;margin-bottom:14px;letter-spacing:.02em;}
+  .service p{font-size:13px;line-height:1.7;color:var(--grey);max-width:44ch;margin-bottom:22px;}
+  .service .price-row{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:13px;letter-spacing:.05em;
+  }
+  .service .price-row a{color:var(--white);text-decoration:none;font-size:16px;transition:color .2s, transform .2s;display:inline-block;}
+  .service .price-row a:hover{color:var(--red);transform:translate(3px,-3px);}
+
+  /* ---- filmstrip gallery ---- */
+  .strip-wrap{padding:20px 0 110px;overflow-x:auto;overflow-y:visible;scrollbar-width:none;}
+  .strip-wrap::-webkit-scrollbar{display:none;}
+  .strip{
+    display:flex;gap:0;padding:40px 6vw;width:max-content;
+  }
+  .strip figure{
+    width:220px;height:300px;flex:0 0 auto;margin-right:-18px;
+    border:6px solid var(--bg);
+    box-shadow:0 20px 40px rgba(0,0,0,.5);
+    transition:transform .35s ease, z-index 0s;
+    position:relative;
+  }
+  .strip figure:nth-child(1){transform:rotate(-6deg);}
+  .strip figure:nth-child(2){transform:rotate(4deg) translateY(18px);}
+  .strip figure:nth-child(3){transform:rotate(-3deg) translateY(-14px);width:260px;height:340px;}
+  .strip figure:nth-child(4){transform:rotate(5deg) translateY(10px);}
+  .strip figure:nth-child(5){transform:rotate(-5deg) translateY(-6px);}
+  .strip figure:hover{transform:rotate(0deg) translateY(-10px) scale(1.05);z-index:5;}
+  .strip img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.25) contrast(1.05);}
+
+  /* ---- faq ---- */
+  .faq{padding:60px 6vw 100px;}
+  .faq h2{font-size:clamp(48px,8vw,110px);margin-bottom:50px;}
+  .faq-item{border-top:1px solid var(--line);}
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-q{
+    display:grid;grid-template-columns:60px 1fr 24px;align-items:center;gap:20px;
+    padding:22px 0;cursor:pointer;background:none;border:none;width:100%;text-align:left;color:var(--white);
+  }
+  .faq-q .num{font-size:12px;color:var(--grey);letter-spacing:.05em;}
+  .faq-q .q-text{font-size:14px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;}
+  .faq-q .arrow{font-size:16px;color:var(--grey);transition:transform .3s ease;justify-self:end;}
+  .faq-item.open .arrow{transform:rotate(180deg);color:var(--red);}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height .4s ease;
+  }
+  .faq-item.open .faq-a{max-height:280px;}
+  .faq-a-inner{
+    display:grid;grid-template-columns:120px 1fr;gap:24px;
+    padding:0 0 30px 60px;align-items:start;
+  }
+  .faq-a-inner img{width:120px;height:150px;object-fit:cover;filter:grayscale(.3);}
+  .faq-a-inner p{font-size:13px;line-height:1.7;color:var(--grey);max-width:52ch;}
+
+  /* ---- footer ---- */
+  footer{padding:70px 6vw 0;}
+  .foot-top{
+    display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;
+    border-top:1px solid var(--line);padding-top:26px;padding-bottom:60px;
+    font-size:12px;color:var(--grey);
+  }
+  .foot-top a{color:var(--grey);text-decoration:none;display:block;margin-bottom:6px;}
+  .foot-top a:hover{color:var(--red);}
+  .foot-top .col-title{color:var(--white);margin-bottom:10px;letter-spacing:.05em;text-transform:uppercase;font-size:11px;}
+  .foot-name{
+    font-size:clamp(90px,20vw,260px);
+    line-height:.8;text-align:center;
+    -webkit-text-stroke:1.5px var(--red);
+    color:transparent;
+    overflow:hidden;height:.62em;
+    letter-spacing:-.02em;
+  }
+
+  @media (max-width:820px){
+    nav ul{display:none;}
+    .services{grid-template-columns:1fr;}
+    .foot-top{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion: reduce){*{transition:none !important;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="name">Jessi Jons</div>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <img src="https://picsum.photos/seed/portrait1/1600/1200" alt="">
+  <h1 class="display">Services</h1>
+</section>
+
+<section class="services" id="services">
+  <div class="service">
+    <div class="label">Studio</div>
+    <h3>Съёмка в студии</h3>
+    <p>Полное обсуждение вашего видения, стилистики и требований к съёмке. Доступ к полностью оборудованной студии со светом, задниками и реквизитом, подобранным под fashion-съёмку. Ретушь отобранных кадров для финального результата.</p>
+    <div class="price-row"><span>$3,000</span><a href="#contact">↗</a></div>
+  </div>
+  <div class="service">
+    <div class="label">Outdoors</div>
+    <h3>Выездная съёмка</h3>
+    <p>Помощь в выборе локации под нужную эстетику — городской или природный пейзаж. Всё необходимое оборудование, включая переносной свет и реквизит, доставляется на площадку. Цветокоррекция и ретушь отобранных кадров.</p>
+    <div class="price-row"><span>$4,000</span><a href="#contact">↗</a></div>
+  </div>
+</section>
+
+<div class="strip-wrap" id="work">
+  <div class="strip">
+    <figure><img src="https://picsum.photos/seed/w1/400/560" alt=""></figure>
+    <figure><img src="https://picsum.photos/seed/w2/400/560" alt=""></figure>
+    <figure><img src="https://picsum.photos/seed/w3/460/620" alt=""></figure>
+    <figure><img src="https://picsum.photos/seed/w4/400/560" alt=""></figure>
+    <figure><img src="https://picsum.photos/seed/w5/400/560" alt=""></figure>
+  </div>
+</div>
+
+<section class="faq" id="faq">
+  <h2 class="display">FAQ</h2>
+
+  <div class="faq-item">
+    <button class="faq-q"><span class="num">/01</span><span class="q-text">What services do you offer?</span><span class="arrow">↓</span></button>
+    <div class="faq-a"><div class="faq-a-inner">
+      <img src="https://picsum.photos/seed/faq1/240/300" alt="">
+      <p>Студийные и выездные fashion-съёмки, портретные серии для брендов и личных проектов, ретушь и цветокоррекция.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item open">
+    <button class="faq-q"><span class="num">/02</span><span class="q-text">How do I book a photoshoot?</span><span class="arrow">↑</span></button>
+    <div class="faq-a"><div class="faq-a-inner">
+      <img src="https://picsum.photos/seed/faq2/240/300" alt="">
+      <p>Забронировать съёмку можно через форму на сайте или письмом на почту. Отвечу в течение 1–2 рабочих дней, обсудим детали и даты.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q"><span class="num">/03</span><span class="q-text">Will you provide makeup/hair?</span><span class="arrow">↓</span></button>
+    <div class="faq-a"><div class="faq-a-inner">
+      <img src="https://picsum.photos/seed/faq3/240/300" alt="">
+      <p>По запросу могу порекомендовать проверенных визажистов и стилистов, с которыми уже работала.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q"><span class="num">/04</span><span class="q-text">How many images will I receive?</span><span class="arrow">↓</span></button>
+    <div class="faq-a"><div class="faq-a-inner">
+      <img src="https://picsum.photos/seed/faq4/240/300" alt="">
+      <p>Зависит от пакета — от 15 до 40 отретушированных кадров, финальное число обсуждается заранее.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q"><span class="num">/05</span><span class="q-text">Do you offer editing services?</span><span class="arrow">↓</span></button>
+    <div class="faq-a"><div class="faq-a-inner">
+      <img src="https://picsum.photos/seed/faq5/240/300" alt="">
+      <p>Да, все кадры проходят цветокоррекцию и ретушь перед передачей заказчику.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q"><span class="num">/06</span><span class="q-text">Do you travel for photoshoots?</span><span class="arrow">↓</span></button>
+    <div class="faq-a"><div class="faq-a-inner">
+      <img src="https://picsum.photos/seed/faq6/240/300" alt="">
+      <p>Да, готова выезжать за пределы города — расходы на дорогу обсуждаются отдельно.</p>
+    </div></div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="foot-top">
+    <div>
+      <div class="col-title">Menu</div>
+      <a href="#work">Portfolio</a>
+      <a href="#services">About</a>
+      <a href="#faq">Info</a>
+    </div>
+    <div>
+      <div class="col-title">Contact</div>
+      <p>Хочу поработать с вами? Напишите мне через контактную форму на сайте — отвечу минимум за 2–3 рабочих дня.</p>
+    </div>
+    <div style="text-align:right">
+      <div class="col-title">Social</div>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+      <a href="https://facebook.com" target="_blank">Facebook</a>
+    </div>
+  </div>
+  <div class="foot-name display">Jessi Jons</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    item.querySelector('.faq-q').addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>{
+        i.classList.remove('open');
+        i.querySelector('.arrow').textContent='↓';
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        item.querySelector('.arrow').textContent='↑';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
