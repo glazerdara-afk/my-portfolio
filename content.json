@@ -1,7 +1,7 @@
 {
-  "name": "Jessi Jons",
-  "hero_image": "/uploads/hf_20260709_141049_1768373a-cfc7-4df6-b4d2-ba6033f4d31e.png",
-  "contact_text": "Хочу поработать с вами? Напишите мне через контактную форму на сайте — отвечу минимум за 2–3 рабочих дня.",
+  "name": "DARIA FEDORENKO",
+  "hero_image": "/uploads/hf_20260607_155131_a9edc0df-1cd6-4164-9fcc-fbb722ead310.png",
+  "contact_text": "Хочу поработать с вами? Напишите мне через контактную форму на сайте — отвечу минимум за 2–3 рабочих часа.",
   "instagram_url": "https://instagram.com",
   "facebook_url": "https://facebook.com",
   "services": [
@@ -9,52 +9,48 @@
       "label": "Studio",
       "title": "AI фото контент",
       "description": "Полное обсуждение вашего видения, стилистики и требований к съёмке. Создание AI фотосъемки",
-      "price": "5000"
+      "price": "5 000"
     },
     {
       "label": "Outdoors",
-      "title": "Выездная съёмка",
-      "description": "Помощь в выборе локации под нужную эстетику — городской или природный пейзаж. Всё необходимое оборудование доставляется на площадку. Цветокоррекция и ретушь отобранных кадров.",
-      "price": "$4,000"
+      "title": "AI видео контент ",
+      "description": "Полное обсуждение вашего видения, стилистики и требований к съёмке. Создание AI видео контента для вашего бренда.",
+      "price": "5 000"
     }
   ],
   "gallery": [
-    "/uploads/hf_20260607_155131_a9edc0df-1cd6-4164-9fcc-fbb722ead310.png",
+    "/uploads/hf_20260607_151213_e660bc79-218f-45dc-9d5f-acd8d0e2c327.png",
     "/uploads/hf_20260607_154718_9ff02149-b6b3-4c4b-b87b-87ab83699b16.png",
-    "https://picsum.photos/seed/w3/460/620",
-    "https://picsum.photos/seed/w4/400/560",
-    "https://picsum.photos/seed/w5/400/560"
+    "/uploads/hf_20260709_141049_1768373a-cfc7-4df6-b4d2-ba6033f4d31e.png",
+    "/uploads/hf_20260804_143225_d39fd6c4-6d54-410f-adbb-0b96983cd7f8.png",
+    "https://picsum.photos/seed/w5/400/560",
+    "/uploads/hf_20260615_170242_47875f49-a47a-4d39-a40e-8fc541391bee.png"
   ],
   "faq": [
     {
-      "question": "What services do you offer?",
-      "answer": "Студийные и выездные fashion-съёмки, портретные серии для брендов и личных проектов, ретушь и цветокоррекция.",
-      "image": "https://picsum.photos/seed/faq1/240/300"
+      "question": "Какие есть услуги?",
+      "answer": "Создание AI фото и видео контента, предметные фотосессии, видео контент, анимация",
+      "image": "/uploads/013c626e-c4ac-458c-87d4-3eeea8bb06a8.png"
     },
     {
-      "question": "How do I book a photoshoot?",
-      "answer": "Забронировать съёмку можно через форму на сайте или письмом на почту. Отвечу в течение 1–2 рабочих дней.",
-      "image": "https://picsum.photos/seed/faq2/240/300"
+      "question": "Как оставить заявку?",
+      "answer": "Оставить заявку можно через форму на сайте или письмом на почту. Отвечу в течение 1–2 часов.",
+      "image": "/uploads/e30a7b2a-8ffb-4684-8864-68b0f22b4156.png"
     },
     {
-      "question": "Will you provide makeup/hair?",
-      "answer": "По запросу могу порекомендовать проверенных визажистов и стилистов, с которыми уже работала.",
+      "question": "Портфолио",
+      "answer": "тут",
       "image": "https://picsum.photos/seed/faq3/240/300"
     },
     {
-      "question": "How many images will I receive?",
-      "answer": "Зависит от пакета — от 15 до 40 отретушированных кадров, финальное число обсуждается заранее.",
+      "question": "Контакты",
+      "answer": "связь",
       "image": "https://picsum.photos/seed/faq4/240/300"
     },
     {
-      "question": "Do you offer editing services?",
-      "answer": "Да, все кадры проходят цветокоррекцию и ретушь перед передачей заказчику.",
+      "question": "сколько",
+      "answer": "много",
       "image": "https://picsum.photos/seed/faq5/240/300"
-    },
-    {
-      "question": "Do you travel for photoshoots?",
-      "answer": "Да, готова выезжать за пределы города — расходы на дорогу обсуждаются отдельно.",
-      "image": "https://picsum.photos/seed/faq6/240/300"
     }
   ]
 }
