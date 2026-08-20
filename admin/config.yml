@@ -17,6 +17,7 @@ collections:
         fields:
           - { label: "Имя / название студии", name: "name", widget: "string" }
           - { label: "Фото на обложке (hero)", name: "hero_image", widget: "image" }
+          - { label: "Видео на обложке (необязательно, mp4)", name: "hero_video", widget: "file", required: false, hint: "Если загружено — покажется вместо фото" }
           - label: "Услуги"
             name: "services"
             widget: "list"
@@ -26,10 +27,10 @@ collections:
               - { label: "Название услуги", name: "title", widget: "string" }
               - { label: "Описание", name: "description", widget: "text" }
               - { label: "Цена", name: "price", widget: "string" }
-          - label: "Галерея (лента фото)"
+          - label: "Галерея (лента фото и видео)"
             name: "gallery"
             widget: "list"
-            field: { label: "Фото", name: "image", widget: "image" }
+            field: { label: "Фото или видео (mp4)", name: "image", widget: "file", hint: "Можно грузить и картинки, и mp4-видео — сайт сам определит тип" }
           - label: "FAQ"
             name: "faq"
             widget: "list"
@@ -41,3 +42,4 @@ collections:
           - { label: "Текст в разделе Contact", name: "contact_text", widget: "text" }
           - { label: "Ссылка на Instagram", name: "instagram_url", widget: "string" }
           - { label: "Ссылка на Facebook", name: "facebook_url", widget: "string" }
+
