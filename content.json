@@ -1,31 +1,17 @@
 {
-  "name": "DARIA FEDORENKO",
-  "hero_image": "/uploads/hf_20260607_155131_a9edc0df-1cd6-4164-9fcc-fbb722ead310.png",
-  "contact_text": "Хочу поработать с вами? Напишите мне через контактную форму на сайте — отвечу минимум за 2–3 рабочих часа.",
   "instagram_url": "https://instagram.com",
-  "facebook_url": "https://facebook.com",
-  "services": [
-    {
-      "label": "Studio",
-      "title": "AI фото контент",
-      "description": "Полное обсуждение вашего видения, стилистики и требований к съёмке. Создание AI фотосъемки",
-      "price": "5 000"
-    },
-    {
-      "label": "Outdoors",
-      "title": "AI видео контент ",
-      "description": "Полное обсуждение вашего видения, стилистики и требований к съёмке. Создание AI видео контента для вашего бренда.",
-      "price": "5 000"
-    }
-  ],
+  "name": "DARIA FEDORENKO",
+  "contact_text": "Хочу поработать с вами? Напишите мне через контактную форму на сайте — отвечу минимум за 2–3 рабочих часа.",
   "gallery": [
-    "/uploads/hf_20260607_151213_e660bc79-218f-45dc-9d5f-acd8d0e2c327.png",
-    "/uploads/hf_20260607_154718_9ff02149-b6b3-4c4b-b87b-87ab83699b16.png",
-    "/uploads/hf_20260709_141049_1768373a-cfc7-4df6-b4d2-ba6033f4d31e.png",
+    "/uploads/hf_20260810_134732_0238f291-863d-4a01-a37f-c1b4065c56a5.mp4",
+    "/uploads/hf_20260810_141138_6dfa7a54-fd30-4e0d-a8fb-5996c5347802.mp4",
+    "/uploads/hf_20260810_135621_badd2b11-c78c-41f6-9d47-6776c6586332.mp4",
     "/uploads/hf_20260804_143225_d39fd6c4-6d54-410f-adbb-0b96983cd7f8.png",
-    "https://picsum.photos/seed/w5/400/560",
-    "/uploads/hf_20260615_170242_47875f49-a47a-4d39-a40e-8fc541391bee.png"
+    "/uploads/013c626e-c4ac-458c-87d4-3eeea8bb06a8.png",
+    "/uploads/hf_20260607_151213_e660bc79-218f-45dc-9d5f-acd8d0e2c327.png"
   ],
+  "facebook_url": "https://facebook.com",
+  "hero_image": "/uploads/hf_20260607_155131_a9edc0df-1cd6-4164-9fcc-fbb722ead310.png",
   "faq": [
     {
       "question": "Какие есть услуги?",
@@ -40,17 +26,32 @@
     {
       "question": "Портфолио",
       "answer": "тут",
-      "image": "https://picsum.photos/seed/faq3/240/300"
+      "image": "/uploads/hf_20260622_192511_897f503a-5e99-4f5f-b024-1cbe31b9d6cf.png"
     },
     {
       "question": "Контакты",
       "answer": "связь",
-      "image": "https://picsum.photos/seed/faq4/240/300"
+      "image": "/uploads/hf_20260607_144644_5e2b51fd-ac40-4623-b00e-fed876f14844.png"
     },
     {
       "question": "сколько",
       "answer": "много",
       "image": "https://picsum.photos/seed/faq5/240/300"
+    }
+  ],
+  "hero_video": "/uploads/hf_20260806_105421_ad06ac71-c31d-4b82-af59-a3411a647722-1-.mp4",
+  "services": [
+    {
+      "label": "Studio",
+      "title": "AI фото контент",
+      "description": "Полное обсуждение вашего видения, стилистики и требований к съёмке. Создание AI фотосъемки",
+      "price": "5 000"
+    },
+    {
+      "label": "Outdoors",
+      "title": "AI видео контент ",
+      "description": "Полное обсуждение вашего видения, стилистики и требований к съёмке. Создание AI видео контента для вашего бренда.",
+      "price": "5 000"
     }
   ]
 }
