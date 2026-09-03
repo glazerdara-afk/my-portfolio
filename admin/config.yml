@@ -47,6 +47,7 @@ collections:
                 fields:
                   - { label: "Подпись (например Draft 1, Final)", name: "label", widget: "string" }
                   - { label: "Изображение", name: "image", widget: "image" }
+              - { label: "3D-сцена (Gaussian Splat, .spz) — необязательно", name: "model_3d", widget: "file", required: false, hint: "Экспорт из Higgsfield и т.п. Если загружено, под шагами появится интерактивный 3D-просмотр с вращением мышью." }
           - label: "FAQ"
             name: "faq"
             widget: "list"
@@ -58,5 +59,3 @@ collections:
           - { label: "Текст в разделе Contact", name: "contact_text", widget: "text" }
           - { label: "Ссылка на Instagram", name: "instagram_url", widget: "string" }
           - { label: "Ссылка на Facebook", name: "facebook_url", widget: "string" }
-
-       
