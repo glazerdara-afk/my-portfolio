@@ -31,6 +31,22 @@ collections:
             name: "gallery"
             widget: "list"
             field: { label: "Фото или видео (mp4)", name: "image", widget: "file", hint: "Можно грузить и картинки, и mp4-видео — сайт сам определит тип" }
+          - label: "Кейсы (разбор процесса)"
+            name: "case_studies"
+            widget: "list"
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Название кейса", name: "title", widget: "string" }
+              - { label: "Краткий бриф", name: "brief", widget: "text", hint: "Что хотел клиент / какая была задача" }
+              - label: "Шаги процесса"
+                name: "steps"
+                widget: "list"
+                summary: "{{fields.label}}"
+                hint: "Последний шаг в списке автоматически показывается как финальный результат (крупнее, с красной рамкой)"
+                fields:
+                  - { label: "Подпись (например Draft 1, Final)", name: "label", widget: "string" }
+                  - { label: "Изображение", name: "image", widget: "image" }
           - label: "FAQ"
             name: "faq"
             widget: "list"
@@ -43,3 +59,4 @@ collections:
           - { label: "Ссылка на Instagram", name: "instagram_url", widget: "string" }
           - { label: "Ссылка на Facebook", name: "facebook_url", widget: "string" }
 
+       
