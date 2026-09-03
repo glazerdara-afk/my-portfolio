@@ -23,12 +23,21 @@
   .display{font-family:'Anton',sans-serif;text-transform:uppercase;color:var(--red);letter-spacing:-.01em;line-height:.86;}
   .label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);}
 
-  /* ---- scroll reveal ---- */
-  .reveal{
-    opacity:0;
-    transform:translateY(28px);
-    transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);
+  /* ---- loader: render progress ---- */
+  #loader{
+    position:fixed;inset:0;z-index:999;background:var(--bg);
+    display:flex;align-items:center;justify-content:center;
+    transition:opacity .6s ease, visibility .6s ease;
   }
+  #loader.hide{opacity:0;visibility:hidden;}
+  .loader-inner{display:flex;flex-direction:column;align-items:center;gap:14px;}
+  .loader-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);}
+  .loader-bar{width:220px;height:2px;background:var(--line);overflow:hidden;}
+  .loader-fill{width:0%;height:100%;background:var(--red);}
+  .loader-pct{font-size:11px;color:var(--white);letter-spacing:.05em;}
+
+  /* ---- scroll reveal ---- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);}
   .reveal.in{opacity:1;transform:translateY(0);}
 
   nav{position:absolute;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:28px 6vw;}
@@ -62,11 +71,25 @@
   .strip figure:nth-child(5n+5){transform:rotate(-5deg) translateY(-6px);}
   .strip figure:hover{transform:rotate(0deg) translateY(-10px) scale(1.05);z-index:5;}
   .strip img, .strip video{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.25) contrast(1.05);}
-  .strip .play-badge{
-    position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;
-    background:rgba(10,10,9,.7);display:flex;align-items:center;justify-content:center;
-    color:var(--white);font-size:11px;pointer-events:none;
-  }
+  .strip .play-badge{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;background:rgba(10,10,9,.7);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:11px;pointer-events:none;}
+
+  /* ---- case studies ---- */
+  .cases{padding:20px 6vw 60px;}
+  .cases .section-label{padding-bottom:30px;}
+  .case{border-top:1px solid var(--line);padding:50px 0;}
+  .case:last-child{border-bottom:1px solid var(--line);}
+  .case-head{margin-bottom:32px;max-width:62ch;}
+  .case-head .label{color:var(--red);margin-bottom:8px;}
+  .case-head h3{font-size:26px;font-weight:600;margin-bottom:10px;letter-spacing:.01em;}
+  .case-head p{font-size:14px;line-height:1.75;color:var(--grey);}
+  .case-steps{display:flex;align-items:center;gap:16px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;}
+  .case-steps::-webkit-scrollbar{display:none;}
+  .case-step{flex:0 0 auto;text-align:center;}
+  .case-step img{width:140px;height:180px;object-fit:cover;display:block;filter:grayscale(.35) contrast(1.02);}
+  .case-step.final img{width:190px;height:240px;filter:none;border:3px solid var(--red);}
+  .case-step .step-label{display:block;margin-top:10px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);}
+  .case-step.final .step-label{color:var(--red);}
+  .case-arrow{flex:0 0 auto;color:var(--grey);font-size:18px;}
 
   .faq{padding:60px 6vw 100px;}
   .faq h2{font-size:clamp(48px,8vw,110px);margin-bottom:50px;}
@@ -100,6 +123,14 @@
 </head>
 <body>
 
+<div id="loader">
+  <div class="loader-inner">
+    <span class="loader-label">Rendering</span>
+    <div class="loader-bar"><div class="loader-fill" id="loader-fill"></div></div>
+    <span class="loader-pct" id="loader-pct">0%</span>
+  </div>
+</div>
+
 <nav>
   <div class="name" id="nav-name">—</div>
   <ul>
@@ -117,6 +148,11 @@
 <div class="strip-wrap" id="work">
   <div class="strip" id="gallery-strip"></div>
 </div>
+
+<section class="cases" id="cases">
+  <div class="label section-label">Process</div>
+  <div id="cases-list"></div>
+</section>
 
 <section class="faq" id="faq">
   <h2 class="display reveal">FAQ</h2>
@@ -145,7 +181,28 @@
 </footer>
 
 <script>
-  // определяем видео по расширению файла
+  // --- loader: стилизованная анимация "рендера" при загрузке ---
+  (function(){
+    const fill = document.getElementById('loader-fill');
+    const pct = document.getElementById('loader-pct');
+    const loader = document.getElementById('loader');
+    let start = null;
+    const duration = 1300;
+    function step(ts){
+      if(!start) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      const pctVal = Math.floor(progress * 100);
+      fill.style.width = pctVal + '%';
+      pct.textContent = pctVal + '%';
+      if(progress < 1){
+        requestAnimationFrame(step);
+      } else {
+        setTimeout(() => loader.classList.add('hide'), 250);
+      }
+    }
+    requestAnimationFrame(step);
+  })();
+
   function isVideo(url){
     return /\.(mp4|webm|mov|m4v)(\?.*)?$/i.test(url || '');
   }
@@ -156,7 +213,6 @@
       document.getElementById('nav-name').textContent = data.name;
       document.getElementById('footer-name').textContent = data.name;
 
-      // hero: видео, если указано hero_video, иначе фото
       const heroEl = document.getElementById('hero');
       const heroMediaTag = data.hero_video
         ? `<video autoplay muted loop playsinline src="${data.hero_video}"></video>`
@@ -174,7 +230,6 @@
           </div>`);
       });
 
-      // галерея: фото или видео вперемешку, по расширению файла
       const galleryEl = document.getElementById('gallery-strip');
       data.gallery.forEach(url => {
         if (isVideo(url)) {
@@ -185,6 +240,32 @@
             `<figure class="reveal"><img src="${url}" alt=""></figure>`);
         }
       });
+
+      // --- кейсы: разбор процесса ---
+      const casesEl = document.getElementById('cases');
+      const casesListEl = document.getElementById('cases-list');
+      if (data.case_studies && data.case_studies.length) {
+        data.case_studies.forEach((cs, idx) => {
+          const num = String(idx + 1).padStart(2, '0');
+          let stepsHtml = '';
+          (cs.steps || []).forEach((step, i, arr) => {
+            const isFinal = i === arr.length - 1;
+            stepsHtml += `<div class="case-step reveal ${isFinal ? 'final' : ''}"><img src="${step.image}" alt=""><span class="step-label">${step.label}</span></div>`;
+            if (!isFinal) stepsHtml += `<div class="case-arrow">→</div>`;
+          });
+          casesListEl.insertAdjacentHTML('beforeend', `
+            <div class="case reveal">
+              <div class="case-head">
+                <div class="label">Case ${num}</div>
+                <h3>${cs.title}</h3>
+                <p>${cs.brief}</p>
+              </div>
+              <div class="case-steps">${stepsHtml}</div>
+            </div>`);
+        });
+      } else {
+        casesEl.style.display = 'none';
+      }
 
       const faqEl = document.getElementById('faq-list');
       data.faq.forEach((item, i) => {
@@ -217,7 +298,6 @@
       document.getElementById('ig-link').href = data.instagram_url;
       document.getElementById('fb-link').href = data.facebook_url;
 
-      // запускаем анимацию появления после того, как контент собран
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
